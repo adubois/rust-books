@@ -5,5 +5,4 @@ authors = ["Alex Dubois <alex@bowabos.com>"]
 
 [dependencies]
 diesel = { version = "1.3.3", features = ["postgres"]}
-diesel_codegen = { version = "0.16.1", features = ["postgres"]}
 dotenv = "0.10.1"
