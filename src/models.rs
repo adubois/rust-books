@@ -1,19 +1,18 @@
-use diesel;
 use diesel::pg::PgConnection;
 use diesel::prelude::*;
 
 use schema::books;
 use schema::books::dsl::books as all_books;
 
-#[derive(Queryable)]
+#[derive(Serialize, Queryable, Debug, Clone)]
 pub struct Book {
-    id: i32,
+    pub id: i32,
     pub title: String,
-    author: String,
-    published: bool,
+    pub author: String,
+    pub published: bool,
 }
 
-#[derive(Insertable)]
+#[derive(Serialize, Deserialize, Insertable)]
 #[table_name = "books"]
 pub struct NewBook {
     pub title: String,
