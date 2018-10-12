@@ -63,7 +63,7 @@ impl Book {
         diesel::delete(all_books.find(id)).execute(conn).is_ok()
     }
 
-    fn all_by_author(author: String, conn: &PgConnection) -> Vec<Book> {
+    pub fn all_by_author(author: String, conn: &PgConnection) -> Vec<Book> {
         all_books
             .filter(books::author.eq(author))
             .load::<Book>(conn)
